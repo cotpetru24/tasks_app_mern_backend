@@ -13,11 +13,13 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(Cors());
+
+
 
 app.use('/api/tasks', require('./routes/taskRoutes'));
 app.use('/api/users', require('./routes/userRoutes'));
 
 app.use(errorHandler);
-app.use(Cors());
 
 app.listen(port, () => console.log(`Server is listening on port ${port}`));
