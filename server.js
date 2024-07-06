@@ -2,7 +2,7 @@ const express = require('express');
 const { errorHandler } = require('./middleware/errorMiddleware');
 const dotenv = require('dotenv').config();
 const connectDB = require('./connect/database');
-const cors = require('cors')
+const Cors = require('cors')
 let port = process.env.PORT || 5000;
 
 
@@ -18,5 +18,6 @@ app.use('/api/tasks', require('./routes/taskRoutes'));
 app.use('/api/users', require('./routes/userRoutes'));
 
 app.use(errorHandler);
+app.use(Cors());
 
 app.listen(port, () => console.log(`Server is listening on port ${port}`));
